@@ -1,5 +1,7 @@
 <launch>
 
+    <!-- Sample launch file to configure voice commands to provide global go and stop commands as well as a/forward, a/backward, b/forward, and b/backward for robots 1 -> a
+and 2 -> b -->
     <node name="voice_commands" type="voice_command.py" pkg="ros_glass_tools">
         <rosparam param="global_commands">
             [

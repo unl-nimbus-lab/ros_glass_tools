@@ -4,29 +4,34 @@ import json, sys, re
 import rospy, rostopic
 from list_topics.srv import Topics
 
+
+
+
 class ListTopics:
+    '''Node to return a list of all running topics when service is called'''
+
+
+
+
     def __init__(self):
         rospy.init_node("list_topics_server")
         self.serv = rospy.Service("list_topics", Topics, self.list)
 
+
+
+
     def list(self, request):
-
+        '''request for service handler return the list'''
         topics = self.get_ros_topics()
-
         return topics
 
     def get_ros_topics(self):
+        '''return list of published topics'''
         try:
             topics = rospy.get_published_topics()
-            
-            string = ""
-            for topic in topics:
-                string = string + topic[0] + " ,"
-
-            return string[0:-2]
-
+            return ' ,'.join(topics)            
         except:
-            print "no core active"
+            rospy.logerr("no core active")
             return None
 
 
