@@ -1,0 +1,21 @@
+<launch>
+
+    <node name="voice_commands" type="voice_command.py" pkg="ros_glass_tools">
+        <rosparam param="global_commands">
+            [
+                [stop, stop],
+                [go, go]
+            ]
+        </rosparam>
+        <rosparam param="robots">
+            [a, b]
+        </rosparam>
+        <rosparam param="robot_commands">
+            [
+                [forward, forward],
+                [backward, backward]
+            ]
+        </rosparam>
+    </node>
+
+</launch>
