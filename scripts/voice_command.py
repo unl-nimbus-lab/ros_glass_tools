@@ -148,14 +148,14 @@ def create_robot_commands(commands, robots):
 
         
 def text2int(textnum):
-    '''simple text number represnetation to integer value'''
-      nums = [
+        '''simple text number represnetation to integer value'''
+        nums = [
         "zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
         "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
-        "sixteen", "seventeen", "eighteen", "nineteen",
-      ]
-      val = nums.index(textnum.lower())
-    return val
+        "sixteen", "seventeen", "eighteen", "nineteen"
+        ]
+        val = nums.index(textnum.lower())
+        return val
 
 
 

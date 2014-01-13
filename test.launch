@@ -2,20 +2,11 @@
 
     <!-- Sample launch file to configure voice commands to provide global go and stop commands as well as a/forward, a/backward, b/forward, and b/backward for robots 1 -> a
 and 2 -> b -->
-    <node name="voice_commands" type="voice_command.py" pkg="ros_glass_tools">
-        <rosparam param="global_commands">
+    <node name="monitor" type="glass_monitor.py" pkg="ros_glass_tools" output="screen">
+        <rosparam param="monitors">
             [
-                [stop, stop],
-                [go, go]
-            ]
-        </rosparam>
-        <rosparam param="robots">
-            [a, b]
-        </rosparam>
-        <rosparam param="robot_commands">
-            [
-                [forward, forward],
-                [backward, backward]
+            { topic: '/a/subject_pose', field: 'translation/x', op: 'gt', val : 2 , msg: 'where you going?'},
+            { topic: '/a/subject_pose', field: 'translation/z', op: 'gt', val : 2 , msg: 'too high!!!'}
             ]
         </rosparam>
     </node>
