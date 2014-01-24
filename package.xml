@@ -2,7 +2,8 @@
 <package>
   <name>ros_glass_tools</name>
   <version>1.0.0</version>
-  <description>The ros_glass_tools package - Provides ROS interface for google glass UAV monitoring and control
+  <description>The ros_glass_tools package - Provides ROS interface to Google Glass for topic
+        monitoring and UAV control
 </description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
