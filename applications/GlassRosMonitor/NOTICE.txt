@@ -1,0 +1,5 @@
+Notice for AutobahnAndroid jars included in this project. No changes made to AutobahnAndroid source.    
+
+	AutobahnAndroid
+	Copyright 2011,2012 Tavendo GmbH. Licensed under Apache 2.0
+	This product includes software developed at Tavendo GmbH http://www.tavendo.de
