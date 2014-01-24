@@ -70,6 +70,8 @@ class VoiceCommandControl:
                 #to and too are used in place of two most of the time in voice commands
                 if number == 'to' or number == 'too':
                   number = 'two'
+                if number == 'for':
+                  number = 'four'
                 robot_number = text2int(number)
             cmd = command_arr[2]
             result = send_robot_command(robot_number, cmd, self.robot_commands)
@@ -107,6 +109,7 @@ def send_robot_command(robot_number, cmd, robot_list):
         If all is selected it will publish it on every robot on the list
         otherwise it is based on which robot number is defined
     '''
+    cmd = cmd.lower()
     if robot_number == 'All':
         results = []
          #send the command on all of them
