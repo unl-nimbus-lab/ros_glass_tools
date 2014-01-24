@@ -5,8 +5,8 @@ and 2 -> b -->
     <node name="monitor" type="glass_monitor.py" pkg="ros_glass_tools" output="screen">
         <rosparam param="monitors">
             [
-            { topic: '/a/subject_pose', field: 'translation/x', op: 'gt', val : 2 , msg: 'where you going?'},
-            { topic: '/a/subject_pose', field: 'translation/z', op: 'gt', val : 2 , msg: 'too high!!!'}
+            { topic: '/a/subject_pose', field: 'translation/x', op: 'gt', val : 2 , msg: 'Too Far to the left?'},
+            { topic: '/a/subject_pose', field: 'translation/z', op: 'gt', val : 2 , msg: 'Too high!!!'}
             ]
         </rosparam>
     </node>
