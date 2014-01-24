@@ -11,7 +11,7 @@ class GlassMonitor:
 
         topic: The rostopic to monitor
         field: The fully named field within the message to check
-        op: Comparison to make can be one of the following: gt, lt, eq, ne
+        op: Comparison to make can be one of the following: gt, lt, eq, ne,within, outside 
         val: The value to check against
         msg: The message to display when the check has been violated
        
@@ -26,7 +26,6 @@ class GlassMonitor:
             </rosparam>
         </node>
     '''
-
 
     def __init__(self):
         #init nodes and services
@@ -76,7 +75,6 @@ class GlassMonitor:
                 st = String(info['msg'])
                 self.warn_pub.publish(st)
 
-
         elif op == 'ne':
             if data != check_val:
                 st = String(info['msg'])
@@ -84,6 +82,14 @@ class GlassMonitor:
 
         elif op == 'eq':
             if data == check_val:
+                st = String(info['msg'])
+                self.warn_pub.publish(st)
+        elif op == 'within':
+            if abs(data) > check_val:
+                st = String(info['msg'])
+                self.warn_pub.publish(st)
+        elif op == 'outside':
+            if abs(data) < check_val:
                 st = String(info['msg'])
                 self.warn_pub.publish(st)
         else:
