@@ -64,16 +64,19 @@ class VoiceCommandControl:
         #are they commanding a single robot
         if command_arr[0] == 'robot':
             try:
+                #see if it parsed the speech as an int
                 robot_number = int(command_arr[1])
             except:
+                #otherwise use this to get the correct value
                 number = command_arr[1]
-                #to and too are used in place of two most of the time in voice commands
+                #to and too and four cause problems and must be replaced
                 if number == 'to' or number == 'too':
                   number = 'two'
                 if number == 'for':
                   number = 'four'
                 robot_number = text2int(number)
             cmd = command_arr[2]
+            #send the commands
             result = send_robot_command(robot_number, cmd, self.robot_commands)
 
         #are they command all of the robots
