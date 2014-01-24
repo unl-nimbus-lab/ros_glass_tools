@@ -1,6 +1,6 @@
 # Summary
 ros_glass_tools provides the ros side actions for interacting with the Google
-Glass example applications found here --------
+Glass example applications.  The applications include [GlassTopicViewer](https://github.com/aktaylor08/GlassTopicViewer), [RobotVoiceControl](https://github.com/aktaylor08/RobotVoiceControl), and [GlassROSMonitor](https://github.com/aktaylor08/GlassRosMonitor).
 
 Running these scripts allows for information to be sent from
 a computer running ros and [RosBridge](http://www.rosbridge.org/).
