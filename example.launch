@@ -4,11 +4,49 @@
 and 2 -> b -->
     <node name="monitor" type="glass_monitor.py" pkg="ros_glass_tools" output="screen">
         <rosparam param="monitors">
+            <!-- Structure to define which topics, fields and operations to monitor 
+
+                Pass in an array of yaml objects each object must have the following defined
+                topic: Name of the topic to monitor
+                field: Fully named field on which to monitor
+                op: One of the following:
+                        gt -  Greater than operator
+                        lt - Less than operator
+                        eq - Equality operator
+                        ne - Not equal operator
+                        outside - Absolute value of data point is greater than the value provided
+                        within - Absolute value of data point is less than the value provided 
+                val: Value to compare against  
+                msg: Message to publish when the created rule has been violated
+
+
+            -->
+            
             [
             { topic: '/a/subject_pose', field: 'translation/x', op: 'gt', val : 2 , msg: 'Too Far to the left?'},
             { topic: '/a/subject_pose', field: 'translation/z', op: 'gt', val : 2 , msg: 'Too high!!!'}
             ]
         </rosparam>
     </node>
+
+    <node name="voice_commands" type="voice_command.py" pkg="ros_glass_tools">
+        <rosparam param="global_commands">
+            <!--Defines global commands which topics to publish on when "execute `name`" is called
+                first name in array is the command second is the topic name -->
+            [ [stop, stop],[go, go] ]
+        </rosparam>
+        <rosparam param="robots">
+            <!-- Prefixes for the robots these will be appended to the names of the topics provided in robot command -->
+            [a, b]
+        </rosparam>
+        <rosparam param="robot_commands">
+            <!-- Base names for topics to publish on -->
+            [
+                [forward, forward],
+                [backward, backward]
+            ]
+        </rosparam>
+    </node>
+
 
 </launch>
