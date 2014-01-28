@@ -15,4 +15,4 @@ a message if the data examined violates the defined constraint.
 * voice_command.py - Provides a service that will publish a blank message on a specified field when 
 it receives a string message.  
 
-For further information please see the ROS wiki [here](ros.org).
+For further information please see the ROS wiki [here](http://wiki.ros.org/ros_glass_tools).
