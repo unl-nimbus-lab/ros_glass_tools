@@ -3,11 +3,11 @@
   <name>ros_glass_tools</name>
   <version>1.0.0</version>
   <description>The ros_glass_tools package - Provides ROS interface to Google Glass for topic
-        monitoring and UAV control
+        monitoring and robot voice control
 </description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
-  <maintainer email="nimbus@unl.edu">Nimbus Lab - CSE @ UNL</maintainer>
+  <maintainer email="uav@unl.edu">Nimbus Lab - CSE @ UNL</maintainer>
 
 
   <license>Apache</license>
