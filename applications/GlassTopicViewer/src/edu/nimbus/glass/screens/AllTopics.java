@@ -39,7 +39,7 @@ public class AllTopics implements Screen{
 		
 		mTopicPaint.setTextSize((float)dist);
 		for(int i=0;i< arr.length;i++){
-			String val = arr[i].replaceAll("\t", "  "); 
+			String val =  "\t" + arr[i];
 			canvas.drawText(TopicManager.performFormatting(val), 0, (float)  ((i+1) * dist) , mTopicPaint);
 		}
 	}

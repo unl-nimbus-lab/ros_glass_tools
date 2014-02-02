@@ -204,7 +204,6 @@ public class TopicManager extends WebSocketHandler{
 	public static String performFormatting(String string){
 
 
-		Log.d("String into format", string);
 
 		if(string.contains(":")){
 			String [] pieces = string.split(":");

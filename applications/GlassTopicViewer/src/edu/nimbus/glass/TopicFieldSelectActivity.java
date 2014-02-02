@@ -56,6 +56,13 @@ public class TopicFieldSelectActivity extends Activity {
 	    
 	    
 	    ArrayList<String> listOfFields = intt.getStringArrayListExtra("field_names");
+	    //remove . at start of some words;
+	    for(int i=0; i < listOfFields.size();i ++){
+	    	if(listOfFields.get(i).startsWith("." ) ){
+	    		listOfFields.set(i, listOfFields.get(i).substring(1));
+	    	}
+	    	
+	    }
 	    if(textual){
 	    	listOfFields.add(0, "All Fields");
 	    }

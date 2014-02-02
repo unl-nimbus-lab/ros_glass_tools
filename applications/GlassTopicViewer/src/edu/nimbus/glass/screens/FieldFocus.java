@@ -35,7 +35,7 @@ public class FieldFocus implements Screen{
 	@Override
 	public void draw(TopicManager tm, TextPaint mTopicPaint, Canvas canvas, int width, int height) {
 		String load = tm.getField(field);
-		mTopicPaint.setTextSize((float)100);		
+		mTopicPaint.setTextSize((float)100);
 		if(load.contains(".")){
 			load = load.substring(0, load.indexOf(".")+5);
 		}
