@@ -15,12 +15,17 @@ copyright 2014 UNL Nimbus Lab
 */
 package edu.nimbus.glass;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.util.Log;
 import de.tavendo.autobahn.WebSocketConnection;
 import de.tavendo.autobahn.WebSocketHandler;
+
+
 
 
 
@@ -37,6 +42,8 @@ public class ROSMonitorManager extends WebSocketHandler{
 	private String _lastWarning;
 	//websocket
 	WebSocketConnection mConnection;
+	
+	private Map<String, Long> message_times;
 
 	/** Topic on which warning messages will be published */
 	public final static String WARN_TOPIC_NAME = "glass_warn";
@@ -50,6 +57,7 @@ public class ROSMonitorManager extends WebSocketHandler{
 	 */
 	public ROSMonitorManager(ROSMonitorService master, WebSocketConnection conn){
 		_lastWarning = "";
+		message_times = new HashMap<String, Long>();
 		_master = master;
 		mConnection = conn;
 	}
@@ -76,9 +84,11 @@ public class ROSMonitorManager extends WebSocketHandler{
 		try {
 			JSONObject res = new JSONObject(payload);
 			String error_message = res.getJSONObject("msg").getString("data");
-			if(!error_message.equals(_lastWarning)){
-				_master.createWarning(error_message);
+			boolean val = check_display(error_message);
+			Log.d("DISPLAY WARN", val+"");
+			if(val){
 				_lastWarning = error_message;
+				_master.createWarning(error_message);
 			}
 
 		} catch (JSONException e) {
@@ -87,6 +97,33 @@ public class ROSMonitorManager extends WebSocketHandler{
 
 	}
 
+	/** 
+	 * This method checks a received message to see if it should be displayed based on time and what is currently being displayed on the screen.
+	 * @return
+	 */
+	public boolean check_display(String new_error){
+		if(_lastWarning == new_error ){
+			return false;
+		}else{
+			long now = System.currentTimeMillis();
+			if(message_times.containsKey(new_error)){
+				long last_time = message_times.get(new_error);
+				if((now - last_time > 5000)){
+					message_times.put(new_error, now);
+					return true;
+				}else{
+					return false;
+				}
+				
+			}else{
+				message_times.put(new_error, now);
+				return true;
+			}
+			
+		}
+		
+		
+	}
 
 	@Override
 	public void onClose(int code, String reason) {
