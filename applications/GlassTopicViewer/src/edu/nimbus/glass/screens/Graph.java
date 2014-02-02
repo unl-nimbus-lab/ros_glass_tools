@@ -52,8 +52,8 @@ public class Graph implements Screen {
 		this.field = field;
 		this.pastValues = new LinkedList<Double>();
 
-		recentMax = Double.MAX_VALUE;
-		recentMin = Double.MIN_VALUE;
+		recentMax = Double.MIN_VALUE;
+		recentMin = Double.MAX_VALUE;
 		min = 0;
 		max = 1;
 		counter = 0;
@@ -110,7 +110,6 @@ public class Graph implements Screen {
 
 			float lastX = 0;
 			float lastY = (float) (vertRatio * pastValues.get(0) );
-			Log.d("MAXMIN", min+" " + max);
 			for(int i=0; i<pastValues.size(); i++){
 				mPaint.setColor(Color.argb(brightness, 128, 255, 192));
 
