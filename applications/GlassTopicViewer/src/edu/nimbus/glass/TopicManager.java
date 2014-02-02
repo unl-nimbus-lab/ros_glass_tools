@@ -203,24 +203,24 @@ public class TopicManager extends WebSocketHandler{
 	 */
 	public static String performFormatting(String string){
 
-		string = string.trim();
 
 		Log.d("String into format", string);
 
 		if(string.contains(":")){
 			String [] pieces = string.split(":");
-
+			
 			if(pieces.length>1){
-				String num = pieces[1];
+				String num = pieces[1].trim();
+
 				try{
-					float f = Float.parseFloat(pieces[1]);
+					float f = Float.parseFloat(num);
 					num = String.format("%.4f", f);
 				}catch(java.lang.NumberFormatException e){
 					//do nothing
 				}
 
 				try{
-					double d = Double.parseDouble(pieces[1]);
+					double d = Double.parseDouble(num);
 					num = String.format("%.4f", d);
 				}catch(Exception e){
 					//do nothing

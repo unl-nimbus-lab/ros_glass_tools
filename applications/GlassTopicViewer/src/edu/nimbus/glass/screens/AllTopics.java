@@ -36,9 +36,11 @@ public class AllTopics implements Screen{
 		String[] arr = text.split("\n");
 		//every field gets screen_height / # of fields space.
 		double dist = height / (arr.length);
+		
 		mTopicPaint.setTextSize((float)dist);
 		for(int i=0;i< arr.length;i++){
-			canvas.drawText(TopicManager.performFormatting(arr[i]), 0, (float)  ((i+1) * dist) , mTopicPaint);
+			String val = arr[i].replaceAll("\t", "  "); 
+			canvas.drawText(TopicManager.performFormatting(val), 0, (float)  ((i+1) * dist) , mTopicPaint);
 		}
 	}
 }

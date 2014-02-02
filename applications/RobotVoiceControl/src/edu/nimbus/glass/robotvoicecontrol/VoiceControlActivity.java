@@ -43,7 +43,7 @@ import android.view.View;
 public class VoiceControlActivity extends Activity {
 	
 	/** This line must be updated to ensure that the glass connects to the correct webserver that is running ROS */
-	public final static String HOST_ADDRESS = "ws://10.214.34.44:9090";
+	public final static String HOST_ADDRESS = "ws://10.214.32.10:9090";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

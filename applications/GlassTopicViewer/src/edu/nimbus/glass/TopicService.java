@@ -72,7 +72,7 @@ public class TopicService extends Service {
 
 	private static final String LIVE_CARD_ID = "topic";
 	/** This line must be updated to ensure that the glass connects to the correct webserver that is running ROS */
-	public final static String HOST_ADDRESS = "ws://10.214.32.106:9090";
+	public final static String HOST_ADDRESS = "ws://10.214.32.10:9090";
 
 
 	/**

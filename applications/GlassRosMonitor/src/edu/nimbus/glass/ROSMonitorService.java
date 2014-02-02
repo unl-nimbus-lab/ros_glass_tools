@@ -41,7 +41,7 @@ public class ROSMonitorService extends Service {
 	/** Needed to create/remove live cards */
 	private static final String LIVE_CARD_ID = "ROS_WARNING";
 	/** EDIT THIS LINE TO MAKE THE CONNECTION TO ROS WORK */
-	public final static String HOST_ADDRESS = "ws://10.214.32.106:9090";
+	public final static String HOST_ADDRESS = "ws://10.214.32.10:9090";
 	
 
 	/** Needed glass items */
